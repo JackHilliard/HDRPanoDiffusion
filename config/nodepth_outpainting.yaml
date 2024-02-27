@@ -11,14 +11,14 @@ model:
     - image
     - depth
     image_size: 64
-    channels: 4
+    channels: 3
     monitor: val/loss_simple_ema
     unet_config:
       target: ldm.modules.diffusionmodules.openaimodel.UNetModel
       params:
         image_size: 64
-        in_channels: 4
-        out_channels: 4
+        in_channels: 3
+        out_channels: 3
         model_channels: 256
         attention_resolutions:
         - 8

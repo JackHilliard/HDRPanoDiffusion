@@ -89,6 +89,12 @@ if __name__ == "__main__":
         default="rgb", # rgb or depth
         help="outpainting mode, rgb or depth",
     )
+    parser.add_argument(
+        "--rotate",
+        type=int,
+        default=0,
+        help="Rotate sample on inference",
+    )
     opt = parser.parse_args()
 
     masks = sorted(glob.glob(os.path.join(opt.indir,"mask", "*.png")))
@@ -133,7 +139,7 @@ if __name__ == "__main__":
                                                  mask=cc,
                                                  eta=1.0,
                                                  verbose=False,
-                                                 rotate=True)
+                                                 rotate=opt.rotate)
 
 
                 
